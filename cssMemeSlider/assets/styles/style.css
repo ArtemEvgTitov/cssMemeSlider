@@ -13,6 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
 }
 
 html {
@@ -28,170 +29,149 @@ html {
     font-size: 30px;
 }
 
-
-/* Контейнер для слайдера */
-
 .slider {
-    position: relative;
-    width: 85vw;
-    height: 60vh;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
-    background-image: url(../images/download.jpg), radial-gradient(at top left, #5B483A, #262425, #211F20);
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
 }
 
-.silder_down {
-    width: 85vw;
+.slider__memes {
+    display: flex;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 37.5rem;
+    border-radius: 10px;
+}
+
+.slider__labels {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 12rem;
+}
+
+.slider__label {
+    display: flex;
+    height: 3rem;
+    width: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider__label:hover {
+    cursor: pointer;
+}
+
+.slider__label:hover>.slider__pint {
+    background-color: rgb(12, 206, 236);
+}
+
+.slider__pint {
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 0.0625rem solid rgb(12, 206, 236);
+    border-radius: 0.8rem;
+}
+
+.slider__pint:hover {
+    background-color: rgb(12, 206, 236);
+}
+
+.slider__radio {
+    display: none;
+}
+
+.slider__meme {
+    transition: transform 0.7s;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.slider__controls-and-text {
     display: flex;
     justify-content: space-between;
-    padding: 1vw;
+    width: 100%;
+    max-width: 37.5rem;
 }
 
-
-/* Изображение */
-
-.meme-image {
-    border-radius: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 85vw;
-    height: 60vh;
-    object-fit: cover;
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.7s ease;
-}
-
-.meme-image.active {
-    opacity: 1;
-}
-
-
-/* Текст */
-
-.text_meme {
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.7s ease;
-}
-
-.text_meme.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-/* Анимации появления */
-
-.slide-in-left {
-    transform: translateX(-100%);
-    opacity: 1;
-}
-
-.slide-in-right {
-    transform: translateX(100%);
-    opacity: 1;
-}
-
-
-/* Анимации ухода */
-
-.slide-out-right {
-    transform: translateX(-100%);
-    opacity: 0;
-}
-
-.slide-out-left {
-    transform: translateX(100%);
-    opacity: 0;
-}
-
-
-/* Кнопки */
-
-.buttons {
+.slider__meme-text-blocks {
     display: flex;
-    flex-direction: row;
-    gap: 1px;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 37.5rem;
 }
 
-.button {
-    border-radius: 100px;
-    border: 7px solid rgba(0, 0, 0, 0);
-    width: 12px;
-    height: 12px;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 7px aqua;
+.slider__meme-text {
+    display: flex;
+    align-items: center;
+    transition: transform .7s;
+    min-width: 100%;
 }
 
-.button:hover {
-    box-shadow: inset 0 0 0 7px white;
-    border: 7px solid rgba(0, 0, 0, 0);
+#r1:checked~.slider>.slider__memes>.slider__meme {
+    transform: translateX(0%);
 }
 
-.button.active {
-    border: 7px solid rgba(0, 0, 0, 0);
-    background-color: #404040;
-    box-shadow: inset 0 0 0 2px aqua;
+#r2:checked~.slider>.slider__memes>.slider__meme {
+    transform: translateX(-100%);
 }
 
-.button.active:hover {
-    box-shadow: inset 0 0 0 2px white;
-    border: 7px solid rgba(0, 0, 0, 0);
+#r3:checked~.slider>.slider__memes>.slider__meme {
+    transform: translateX(-200%);
 }
 
-@media (min-width: 1300px) and (max-width: 2000px) {
-    .slider {
-        height: 80vh;
-    }
-    .meme-image {
-        height: 80vh;
-    }
+#r4:checked~.slider>.slider__memes>.slider__meme {
+    transform: translateX(-300%);
 }
 
-@media (min-width: 630px) and (max-width: 800px) {
-    .header {
-        padding: 7vw;
-    }
-    .silder_down {
+#r1:checked~.slider>.slider__controls-and-text>.slider__labels>#label1>.slider__pint {
+    background-color: rgb(12, 206, 236)
+}
+
+#r2:checked~.slider>.slider__controls-and-text>.slider__labels>#label2>.slider__pint {
+    background-color: rgb(12, 206, 236)
+}
+
+#r3:checked~.slider>.slider__controls-and-text>.slider__labels>#label3>.slider__pint {
+    background-color: rgb(12, 206, 236)
+}
+
+#r4:checked~.slider>.slider__controls-and-text>.slider__labels>#label4>.slider__pint {
+    background-color: rgb(12, 206, 236)
+}
+
+#r1:checked~.slider>.slider__controls-and-text>.slider__meme-text-blocks>.slider__meme-text {
+    transform: translateX(0%);
+}
+
+#r2:checked~.slider>.slider__controls-and-text>.slider__meme-text-blocks>.slider__meme-text {
+    transform: translateX(-100%);
+}
+
+#r3:checked~.slider>.slider__controls-and-text>.slider__meme-text-blocks>.slider__meme-text {
+    transform: translateX(-200%);
+}
+
+#r4:checked~.slider>.slider__controls-and-text>.slider__meme-text-blocks>.slider__meme-text {
+    transform: translateX(-300%);
+}
+
+@media (max-width: 699px) {
+    .slider__controls-and-text {
         flex-direction: column-reverse;
-        padding: 5vw 0;
     }
-    .slider {
-        height: 20rem;
+    .slider__labels {
+        justify-self: center;
+        align-self: center;
     }
-    .meme-image {
-        height: 20rem;
-    }
-    .buttons {
-        display: flex;
-        justify-content: center;
-    }
-    .button,
-    .button:hover,
-    .button.active,
-    .button.active:hover {
-        border: 10px solid rgba(0, 0, 0, 0);
-    }
-}
-
-@media (min-width: 400px) and (max-width: 630px) {
-    .header {
-        padding: 7vw;
-    }
-    .silder_down {
-        flex-direction: column-reverse;
-        padding: 5vw 0;
-    }
-    .slider {
-        height: 14rem;
-    }
-    .meme-image {
-        height: 14rem;
-    }
-    .buttons {
-        display: flex;
-        justify-content: center;
+    .slider__memes,
+    .slider__controls-and-text {
+        max-width: 80vw;
     }
 }
