@@ -68,6 +68,8 @@ html {
 }
 
 .slider__label:hover>.slider__pint {
+    width: 1.2rem;
+    height: 1.2rem;
     background-color: rgb(12, 206, 236);
 }
 
@@ -78,9 +80,10 @@ html {
     border-radius: 0.8rem;
 }
 
-.slider__pint:hover {
+
+/* .slider__pint:hover {
     background-color: rgb(12, 206, 236);
-}
+} */
 
 .slider__radio {
     display: none;
